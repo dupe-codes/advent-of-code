@@ -1,0 +1,4 @@
+(executable
+ (public_name calorie_counting)
+ (name main)
+ (libraries ocaml))
