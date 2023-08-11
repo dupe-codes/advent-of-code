@@ -1,7 +1,5 @@
 let file = "./input"
 
-(* TODO: extend to return top _3_ calorie counts *)
-
 let get_max_calories () =
   let in_ch = open_in file in
   let rec max_calories curr_maxes acc in_ch =

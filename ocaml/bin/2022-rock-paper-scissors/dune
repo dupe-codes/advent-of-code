@@ -1,0 +1,4 @@
+(executable
+ (public_name rock_paper_scissors)
+ (name main)
+ (libraries ocaml str))
