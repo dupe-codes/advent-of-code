@@ -2,3 +2,8 @@
  (public_name ocaml)
  (name main)
  (libraries ocaml))
+
+(env
+ (dev
+  (flags
+   (:standard -w -66))))

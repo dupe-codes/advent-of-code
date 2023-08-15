@@ -1,0 +1,8 @@
+(executable
+ (public_name rucksack)
+ (name main)
+ (libraries ocaml str stdio))
+
+(env
+ (dev
+  (flags :standard -warn-error -27-32)))
