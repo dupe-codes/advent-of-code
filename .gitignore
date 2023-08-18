@@ -2,5 +2,8 @@
 _build/
 _opam/
 
+# rust build artifacts
+target/
+
 # advent of code input data
 input
