@@ -1,6 +1,5 @@
 use std::fs;
 
-
 pub fn binary(input_file: &str) {
     let commands = fs::read_to_string(input_file).unwrap();
     let mut element_counts = [0; 12];
@@ -10,7 +9,7 @@ pub fn binary(input_file: &str) {
                 element_counts[i] += if ch == '0' { -1 } else { 1 }
             }
         }
-    };
+    }
 
     println!("{:?}", element_counts);
     let mut gamma = 0;
@@ -24,5 +23,5 @@ pub fn binary(input_file: &str) {
         }
     }
     println!("gamma: {}, epsilon: {}", gamma, epsilon);
-    println!("result: {}", gamma*epsilon);
+    println!("result: {}", gamma * epsilon);
 }

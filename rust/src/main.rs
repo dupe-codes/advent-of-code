@@ -1,6 +1,6 @@
+mod binary;
 mod dive;
 mod sonar_sweep;
-mod binary;
 
 const DIVE_INPUT_FILE: &str = "inputs/dive.txt";
 const BINARY_INPUT: &str = "inputs/binary.txt";
