@@ -7,3 +7,4 @@ target/
 
 # advent of code input data
 input
+*.txt
