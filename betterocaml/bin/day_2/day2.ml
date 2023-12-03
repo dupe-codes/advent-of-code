@@ -45,6 +45,29 @@ let is_possible_draw available drawn =
   && drawn.green <= available.green
   && drawn.blue <= available.blue
 
+let calculate_game_power game =
+  let _, draws = parse_game game in
+  let max_red, max_green, max_blue =
+    List.fold_left
+      (fun (red_max, green_max, blue_max) draw ->
+        (max draw.red red_max, max draw.green green_max, max draw.blue blue_max))
+      (0, 0, 0) draws
+  in
+  let _ =
+    Printf.printf "max_red: %d, max_green: %d, max_blue %d => %d\n" max_red
+      max_green max_blue
+      (max_red * max_green * max_blue)
+  in
+  max_red * max_green * max_blue
+
+let calculate_power_sum input =
+  let rec loop games sum =
+    match games with
+    | [] -> sum
+    | game :: rest -> loop rest (sum + calculate_game_power game)
+  in
+  loop input 0
+
 let sum_possible_games cubes input =
   let rec loop lines sum =
     match lines with
@@ -59,6 +82,7 @@ let sum_possible_games cubes input =
   loop input 0
 
 let _ =
-  Aoc.Util.read_input "bin/day_2/in"
-  |> sum_possible_games { red = 12; green = 13; blue = 14 }
+  Aoc.Util.read_input "bin/day_2/input.txt"
+  (*|> sum_possible_games { red = 12; green = 13; blue = 14 }*)
+  |> calculate_power_sum
   |> string_of_int |> Printf.printf "Result: %s"
