@@ -1,16 +1,3 @@
-(* TODO: Move to a utils module *)
-let read_input input_file =
-  let ic = open_in input_file in
-  let rec read_lines acc =
-    try
-      let line = input_line ic in
-      read_lines (line :: acc)
-    with End_of_file -> List.rev acc
-  in
-  let lines = read_lines [] in
-  let _ = close_in ic in
-  lines
-
 let is_digit = function '1' .. '9' -> true | _ -> false
 
 (* Not the most efficient, but oh well :] *)
@@ -100,7 +87,7 @@ let calculate_calibration_val input_lines =
   List.map parse_calibration_val input_lines |> List.fold_left ( + ) 0
 
 let _ =
-  read_input "bin/day_1/input.txt"
+  Aoc.Util.read_input "bin/day_1/input.txt"
   |> calculate_calibration_val |> string_of_int
   |>
   let _ = print_endline "\nAnswer:" in
